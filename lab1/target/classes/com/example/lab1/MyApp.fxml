@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#setActionsOnKeys" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab1.Controller">
+   <children>
+      <Pane fx:id="viewPane" layoutX="161.0" layoutY="32.0" prefHeight="359.0" prefWidth="429.0">
+         <children>
+            <MediaView fx:id="mediaView" fitHeight="100.0" fitWidth="100.0" layoutX="333.0" layoutY="263.0" />
+         </children></Pane>
+      <Pane fx:id="menuPane" layoutX="14.0" layoutY="29.0" prefHeight="360.0" prefWidth="137.0">
+         <children>
+            <Button fx:id="StartBtn" layoutX="14.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#StartSimulation" text="Start" />
+            <Button fx:id="StopBtn" disable="true" layoutX="80.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#newModalWindow" text="Stop" />
+            <VBox alignment="CENTER" layoutX="22.0" layoutY="207.0" prefHeight="75.0" prefWidth="100.0" spacing="20.0">
+               <children>
+                  <RadioButton fx:id="showTimeRadio" mnemonicParsing="false" onMouseClicked="#showTime" prefWidth="85.0" selected="true" text="Show Time">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="TimerShow" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="hideTimeRadio" mnemonicParsing="false" onMouseClicked="#hideTime" prefHeight="18.0" prefWidth="85.0" text="Hide Time" toggleGroup="$TimerShow" />
+                  <CheckBox fx:id="InfoCheckBox" mnemonicParsing="false" text="Show Info" />
+               </children>
+            </VBox>
+            <Label fx:id="time" layoutX="7.0" layoutY="20.0" text="Time:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comboBoxP" layoutX="46.0" layoutY="100.0" prefHeight="25.0" prefWidth="68.0" />
+            <ComboBox fx:id="comboBoxK" layoutX="46.0" layoutY="66.0" prefHeight="25.0" prefWidth="69.0" />
+            <TextField fx:id="textFieldN2" layoutX="46.0" layoutY="163.0" prefHeight="25.0" prefWidth="68.0" text="1" />
+            <TextField fx:id="textFieldN1" layoutX="46.0" layoutY="131.0" prefHeight="25.0" prefWidth="68.0" text="1" />
+            <Label layoutX="27.0" layoutY="70.0" text="K" />
+            <Label layoutX="27.0" layoutY="104.0" text="P" />
+            <Label layoutX="24.0" layoutY="135.0" text="N1" />
+            <Label layoutX="23.0" layoutY="167.0" text="N2" />
+         </children>
+      </Pane>
+      <MenuBar prefHeight="27.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="App">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Simulation">
+               <items>
+                  <RadioMenuItem fx:id="EditStart" mnemonicParsing="false" onAction="#StartSimulation" text="Start">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="EditStarting" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="EditStop" mnemonicParsing="false" onAction="#newModalWindow" selected="true" text="Stop" toggleGroup="$EditStarting" />
+               </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Time">
+               <items>
+                  <RadioMenuItem fx:id="EditShowTime" mnemonicParsing="false" onAction="#showTime" selected="true" text="Show time">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="EditShowingTime" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="EditHideTime" mnemonicParsing="false" onAction="#hideTime" text="Hide Time" toggleGroup="$EditShowingTime" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <Line endX="-100.0" endY="341.81121826171875" layoutX="257.0" layoutY="38.0" startX="-100.0" />
+   </children>
+</Pane>
