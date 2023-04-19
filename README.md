@@ -7,8 +7,8 @@ Workers are born every N2 seconds with probability P.
 
 ## Labs list: 
 1) Runnable app according to main task with actionOnKeyPressed handler
-2) Buttons, inputs, data class, warning and modal menu, tool menu added 
-3) Collection (ArrayList of objects, HashSet of IDs, MapTree of bornTime)
+2) UI creation (Buttons, inputs, warning and modal menus, tool menu)
+3) Collections (ArrayList of objects, HashSet of IDs, MapTree of bornTime)
 4) Multi-thread simple AI for objets, checkBoxes in UI to stop AI
 5) App console, config files support, serialization
 
