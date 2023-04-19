@@ -6,7 +6,10 @@ Drones are born every N1 seconds if their number is less than K% of the total nu
 Workers are born every N2 seconds with probability P.
 
 ## Labs list: 
-1) Runnable app with actionOnKeyPressed (E - stop, B - start, T - show/hide time)
+1) Runnable app according to main task with actionOnKeyPressed handler
 2) Buttons, inputs, data class, warning and modal menu, tool menu added 
+3) Collection (ArrayList of objects, HashSet of IDs, MapTree of bornTime)
+4) Multi-thread simple AI for objets, checkBoxes in UI to stop AI
+5) App console, config files support, serialization
 
 #### (с) radon
