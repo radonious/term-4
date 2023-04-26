@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#setActionsOnKeys" prefHeight="599.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab1.Controller">
+   <children>
+      <Pane fx:id="viewPane" layoutX="189.0" layoutY="33.0" prefHeight="557.0" prefWidth="506.0">
+         <children>
+            <MediaView fx:id="mediaView" fitHeight="100.0" fitWidth="100.0" layoutX="333.0" layoutY="263.0" />
+         </children></Pane>
+      <Pane fx:id="menuPane" layoutX="10.0" layoutY="32.0" prefHeight="558.0" prefWidth="163.0">
+         <children>
+            <VBox alignment="CENTER" layoutX="25.0" layoutY="277.0" prefHeight="176.0" prefWidth="115.0" spacing="20.0">
+               <children>
+                  <RadioButton fx:id="showTimeRadio" mnemonicParsing="false" onMouseClicked="#showTime" prefWidth="85.0" selected="true" text="Show Time">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="TimerShow" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="hideTimeRadio" mnemonicParsing="false" onMouseClicked="#hideTime" prefHeight="18.0" prefWidth="85.0" text="Hide Time" toggleGroup="$TimerShow" />
+                  <CheckBox fx:id="InfoCheckBox" mnemonicParsing="false" text="Show Info" />
+                  <CheckBox fx:id="toggleWorkerAICheckBox" mnemonicParsing="false" text="Worker AI" />
+                  <CheckBox fx:id="toggleDroneAICheckBox" mnemonicParsing="false" text="Drone AI" />
+                  <Button fx:id="currentBtn" disable="true" mnemonicParsing="false" onMouseClicked="#showCurrentObjects" prefHeight="26.0" prefWidth="75.0" text="Current" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="27.0">
+                     <children>
+                        <Button fx:id="StartBtn" mnemonicParsing="false" onMouseClicked="#startSimulation" text="Start" />
+                        <Button fx:id="StopBtn" disable="true" mnemonicParsing="false" onMouseClicked="#newModalWindow" text="Stop" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Label fx:id="time" layoutX="5.0" layoutY="11.0" text="Time:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <GridPane layoutX="6.0" layoutY="65.0" prefHeight="191.0" prefWidth="152.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.40774536132812" minWidth="10.0" prefWidth="72.55668640136719" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.45147705078125" minWidth="10.0" prefWidth="79.94331359863281" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="38.08253479003906" minHeight="10.0" prefHeight="29.5" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Slider fx:id="deathTimeDrone" majorTickUnit="1.0" max="25.0" min="1.0" minorTickCount="1" prefHeight="33.0" prefWidth="53.0" showTickLabels="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label text="LifeTime D" GridPane.rowIndex="4" />
+                  <Label text="LifeTime W" GridPane.rowIndex="5" />
+                  <Slider fx:id="deathTimeWorker" blockIncrement="12.0" majorTickUnit="1.0" max="25.0" min="1.0" minorTickCount="1" prefHeight="15.0" prefWidth="160.0" showTickLabels="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="textFieldN2" prefHeight="25.0" prefWidth="68.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="N2" GridPane.rowIndex="3" />
+                  <TextField fx:id="textFieldN1" prefHeight="25.0" prefWidth="68.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="comboBoxP" prefHeight="25.0" prefWidth="68.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="comboBoxK" prefHeight="25.0" prefWidth="69.0" GridPane.columnIndex="1" />
+                  <Label text="N1" GridPane.rowIndex="2" />
+                  <Label text="P" GridPane.rowIndex="1" />
+                  <Label text="K" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <MenuBar prefHeight="28.0" prefWidth="700.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Simulation">
+               <items>
+                  <RadioMenuItem fx:id="EditStart" mnemonicParsing="false" onAction="#startSimulation" text="Start">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="EditStarting" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="EditStop" mnemonicParsing="false" onAction="#newModalWindow" selected="true" text="Stop" toggleGroup="$EditStarting" />
+               </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Time">
+               <items>
+                  <RadioMenuItem fx:id="EditShowTime" mnemonicParsing="false" onAction="#showTime" selected="true" text="Show time">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="EditShowingTime" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="EditHideTime" mnemonicParsing="false" onAction="#hideTime" text="Hide Time" toggleGroup="$EditShowingTime" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Config">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showConsole" text="Console" />
+                  <MenuItem mnemonicParsing="false" onAction="#loadCustomConfig" text="Load" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveCustomConfig" text="Save" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <Line endX="-100.00003051757812" endY="548.5565795898438" layoutX="283.0" layoutY="39.0" startX="-100.0" />
+   </children>
+</Pane>
