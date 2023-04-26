@@ -12,4 +12,7 @@ Workers are born every N2 seconds with probability P.
 4) Multi-thread simple AI for objets, checkBoxes in UI to stop AI
 5) App console, config files support, serialization
 
+## Image:
+<img width="812" alt="Screenshot 2023-04-26 at 23 56 27" src="https://user-images.githubusercontent.com/67727902/234648308-d55ba94c-72c8-4854-9868-facd27ea3d62.png">
+
 #### (с) radon
