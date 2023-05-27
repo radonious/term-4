@@ -12,6 +12,7 @@ Workers are born every N2 seconds with probability P.
 4) Multi-thread simple AI for objets, checkBoxes in UI to stop AI
 5) App console, config files support, serialization
 6) TCP/IP connection support, object sending to another client
+7) PostgreSQL support, object save/load using DB
 
 ## Preview Images
 <img width="1012" alt="Screenshot 2023-05-16 at 16 34 30" src="https://github.com/radonious/term-4/assets/67727902/dd2df818-2c12-4c4c-a1a9-2297d56dfa65">
