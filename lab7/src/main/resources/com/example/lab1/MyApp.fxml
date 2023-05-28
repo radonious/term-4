@@ -126,8 +126,20 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Data Base">
               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#saveIntoDB" text="Save" />
-                <MenuItem mnemonicParsing="false" onAction="#loadFromDB" text="Load" />
+                  <Menu mnemonicParsing="false" text="Save">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#saveAllIntoDB" text="All" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveDronesIntoDB" text="Drones" />
+                      <MenuItem mnemonicParsing="false" onAction="#saveWorkersIntoDB" text="Workers" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Load">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#loadAllFromDB" text="All" />
+                      <MenuItem mnemonicParsing="false" onAction="#loadDronesFromDB" text="Drones" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadWorkersFromDB" text="Workers" />
+                    </items>
+                  </Menu>
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Connection">

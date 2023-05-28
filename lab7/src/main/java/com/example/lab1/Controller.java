@@ -810,12 +810,22 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void saveIntoDB() throws SQLException, ClassNotFoundException {
+    public void saveAllIntoDB() throws SQLException, ClassNotFoundException {
         DataBase.save(habitat.getList());
     }
 
     @FXML
-    public void loadFromDB() throws SQLException, ClassNotFoundException, FileNotFoundException, MalformedURLException {
+    public void saveDronesIntoDB() throws SQLException, ClassNotFoundException {
+        DataBase.save((ArrayList<Bee>) habitat.getList().stream().filter(e -> e.equals(Drone.class)));
+    }
+
+    @FXML
+    public void saveWorkersIntoDB() throws SQLException, ClassNotFoundException {
+        DataBase.save((ArrayList<Bee>) habitat.getList().stream().filter(e -> e.equals(Worker.class)));
+    }
+
+    @FXML
+    public void loadAllFromDB() throws SQLException, FileNotFoundException, MalformedURLException {
         if (isStarted) stopSimulation();
         startSimulation();
 
@@ -829,6 +839,49 @@ public class Controller implements Initializable {
             bee.syncPos();
             Platform.runLater(() -> viewPane.getChildren().add(bee.getView()));
         }
+        loadEnd(bees);
+    }
+
+    @FXML
+    public void loadDronesFromDB() throws SQLException, FileNotFoundException, MalformedURLException {
+        if (isStarted) stopSimulation();
+        startSimulation();
+
+        ArrayList<Bee> bees = DataBase.load();
+        for (Bee bee : bees) {
+            if (bee.getClass() == Drone.class) {
+                Image img = new Image(new FileInputStream(getDronePath()));
+            } else {
+                Platform.runLater(() -> bees.remove(bee));
+                continue;
+            }
+            bee.syncPos();
+            Platform.runLater(() -> viewPane.getChildren().add(bee.getView()));
+        }
+        loadEnd(bees);
+    }
+
+    @FXML
+    public void loadWorkersFromDB() throws SQLException, FileNotFoundException, MalformedURLException {
+        if (isStarted) stopSimulation();
+        startSimulation();
+
+        ArrayList<Bee> bees = DataBase.load();
+        for (Bee bee : bees) {
+            if (bee.getClass() == Worker.class) {
+                Image img = new Image(new FileInputStream(getWorkerPath()));
+            } else {
+                Platform.runLater(() -> bees.remove(bee));
+                continue;
+            }
+            bee.syncPos();
+            Platform.runLater(() -> viewPane.getChildren().add(bee.getView()));
+        }
+        loadEnd(bees);
+    }
+
+    private void loadEnd(ArrayList<Bee> bees) {
+        habitat.setList(bees);
         BeeData.getInstance().setList(habitat.getList());
         BeeData.getInstance().setSet(habitat.getSet());
         BeeData.getInstance().setTree(habitat.getTree());
