@@ -6,9 +6,9 @@ Drones are born every N1 seconds if their number is less than K% of the total nu
 Workers are born every N2 seconds with probability P.
 
 ## Labs List
-1) Runnable app according to main task with basic action handler
+1) Runnable app according to main task and basic action handler
 2) UI creation (Buttons, inputs, warning and modal menus, tool menu)
-3) Collections (ArrayList of objects, HashSet of IDs, MapTree of bornTime)
+3) Collections (ArrayList of objects, HashSet of IDs, MapTree of born time)
 4) Multi-thread simple AI for objets, checkBoxes in UI to stop AI
 5) App console, config files support, serialization
 6) TCP/IP connection support, object sending to another client
